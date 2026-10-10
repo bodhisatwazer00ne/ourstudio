@@ -1,0 +1,10 @@
+{
+  "name": "OurStudio v.4.0",
+  "description": "Collaborative, cloud-based music production platform with git-like metadata version control, branching, merge requests, and an interactive lightweight DAW.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
