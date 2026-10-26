@@ -1,0 +1,131 @@
+{
+  "entities": {
+    "user": {
+      "title": "User Account",
+      "description": "User profile with authentication and collaboration username",
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": "Unique username handle for authentication and collaboration invites"
+        },
+        "name": {
+          "type": "string",
+          "description": "User display name"
+        },
+        "password": {
+          "type": "string",
+          "description": "User password for authentication"
+        },
+        "preferredRole": {
+          "type": "string",
+          "description": "Default DAW production role",
+          "enum": ["Owner", "Producer", "Editor", "Track Editor", "Viewer"]
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of account creation"
+        }
+      },
+      "required": ["username", "name", "password", "preferredRole"]
+    },
+    "project": {
+      "title": "Music Project",
+      "description": "Collaborative DAW project repository with Git-style version control",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique project identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Project title"
+        },
+        "description": {
+          "type": "string",
+          "description": "Project brief"
+        },
+        "genre": {
+          "type": "string",
+          "description": "Musical genre"
+        },
+        "tempo": {
+          "type": "number",
+          "description": "Beats per minute tempo"
+        },
+        "timeSignature": {
+          "type": "string",
+          "description": "Musical meter"
+        },
+        "creatorId": {
+          "type": "string",
+          "description": "User ID of creator"
+        },
+        "creatorUsername": {
+          "type": "string",
+          "description": "Username of creator"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation date"
+        },
+        "tracks": {
+          "type": "array",
+          "description": "Audio tracks"
+        },
+        "clips": {
+          "type": "array",
+          "description": "Audio clips"
+        },
+        "team": {
+          "type": "array",
+          "description": "Collaborator roster"
+        },
+        "branches": {
+          "type": "array",
+          "description": "Git branches"
+        },
+        "activeBranchId": {
+          "type": "string",
+          "description": "Active branch"
+        },
+        "branchStates": {
+          "type": "object",
+          "description": "Per-branch metadata state"
+        },
+        "commits": {
+          "type": "array",
+          "description": "Version commits ledger"
+        },
+        "mergeRequests": {
+          "type": "array",
+          "description": "Pull requests"
+        },
+        "comments": {
+          "type": "array",
+          "description": "Timeline comments"
+        },
+        "notifications": {
+          "type": "array",
+          "description": "Project activity alerts"
+        }
+      },
+      "required": ["id", "name", "creatorId", "tracks", "team"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/user"
+      },
+      "description": "Collection of registered user accounts accessible for login and collaborator invites"
+    },
+    "/projects/{projectId}": {
+      "schema": {
+        "$ref": "#/entities/project"
+      },
+      "description": "Collection of collaborative music projects synced across devices"
+    }
+  }
+}

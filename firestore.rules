@@ -1,0 +1,19 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users collection: readable for authentication & username collaborator lookups, writable for user registration & updates
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    // Projects collection: accessible for multi-user real-time music production and collaboration
+    match /projects/{projectId} {
+      allow read, write: if true;
+    }
+
+    // Diagnostic connection test endpoint
+    match /test/{docId} {
+      allow read, write: if true;
+    }
+  }
+}
