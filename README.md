@@ -133,6 +133,4 @@ OurStudio is a web-based, multi-user DAW and audio project version control platf
 
 ---
 
-## License
 
-This project is licensed under the Apache-2.0 License.
