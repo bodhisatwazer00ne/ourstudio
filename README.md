@@ -1,4 +1,4 @@
-# OurStudio v.4.2
+# OurStudio 
 
 > **Collaborative, Version-Controlled Cloud Digital Audio Workstation (DAW)**
 
@@ -61,9 +61,7 @@ OurStudio is a web-based, multi-user DAW and audio project version control platf
 │   ├── App.tsx                       # Root container, active project routing, and state orchestration
 │   └── main.tsx                      # React DOM root entry point
 ├── index.html                        # HTML entry point
-├── package.json                      # Project metadata, dependencies, and build scripts
-├── vite.config.ts                    # Vite build configuration
-└── firestore.rules                   # Security rules for Firestore collections
+
 ```
 
 ---
